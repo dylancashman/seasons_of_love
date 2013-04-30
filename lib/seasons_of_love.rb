@@ -1,7 +1,7 @@
-require "seasoning/version"
+require "seasons_of_love/version"
 require 'active_support/core_ext'
 
-module Seasoning
+module SeasonsOfLove
   #date trick taken from http://stackoverflow.com/questions/925905/is-it-possible-to-create-a-list-of-months-between-two-dates-in-rails
   # -Dylan
   def self.split_dates_into_ranges(start_date, end_date)

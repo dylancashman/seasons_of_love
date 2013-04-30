@@ -1,7 +1,7 @@
-require File.join(File.dirname(__FILE__), '..', 'lib', 'seasoning')
+require File.join(File.dirname(__FILE__), '..', 'lib', 'seasons_of_love')
 
-describe Seasoning do
-  let(:parsed_range) { Seasoning.split_dates_into_ranges(@start_date, @end_date) }
+describe SeasonsOfLove do
+  let(:parsed_range) { SeasonsOfLove.split_dates_into_ranges(@start_date, @end_date) }
 
   context "parse_range_into_months_hash" do
     context "same month" do

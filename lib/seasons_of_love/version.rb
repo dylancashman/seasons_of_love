@@ -1,3 +1,3 @@
-module Seasoning
+module SeasonsOfLove
   VERSION = "0.0.1"
 end
