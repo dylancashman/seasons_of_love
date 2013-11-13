@@ -45,11 +45,26 @@ describe SeasonsOfLove do
 
   context 'parse range into weeks hash' do
     context 'same week' do
-
+      let(:start_date) { Date.parse("November 11, 2013") }
+      let(:end_date) { Date.parse("November 13, 2013") }      
+      let(:parsed_range) { SeasonsOfLove.split_dates_into_ranges(start_date, end_date) }
+    
+      it 'should return one hash' do
+        parsed_range.should == [{:start_date => start_date, :end_date => end_date}]
+      end
     end
 
     context 'different weeks' do
+      let(:start_date) { Date.parse("November 3, 2013") }
+      let(:end_date) { Date.parse("November 13, 2013") }      
+      let(:parsed_range) { SeasonsOfLove.split_dates_into_ranges(start_date, end_date) }
 
+      it 'should return one hash' do
+        parsed_range.should ==  [
+                                  {:start_date => start_date, :end_date => Date.parse('November 10, 2013')},
+                                  {:start_date => Date.parse('November 11, 2013'), :end_date => end_date}
+                                ]
+      end
     end
   end
 
