@@ -26,6 +26,31 @@ describe SeasonsOfLove do
                                 ]
       end
     end
+
+    context 'allow nil' do
+      let(:start_date) { Date.parse("September 5, 2012") }
+      let(:end_date) { Date.parse("September 18, 2012") }
+
+      it 'should fail silently if allow_nil: true' do
+        SeasonsOfLove.split_dates_into_ranges(nil, end_date, allow_nil: true).should == []
+        SeasonsOfLove.split_dates_into_ranges(start_date, nil, allow_nil: true).should == []
+      end
+
+      it 'should raise exception if allow_nil false or not provided' do
+        SeasonsOfLove.split_dates_into_ranges(nil, end_date, allow_nil: true).should == []
+        SeasonsOfLove.split_dates_into_ranges(start_date, nil, allow_nil: true).should == []
+      end
+    end
+  end
+
+  context 'parse range into weeks hash' do
+    context 'same week' do
+
+    end
+
+    context 'different weeks' do
+
+    end
   end
 
 end
